@@ -40,7 +40,7 @@
 ## Monorepo Structure
 
 ```
-genesis-interview-project/
+bond-yield-calculator/
 ├── package.json          # Root — workspaces config
 ├── client/               # React + Vite
 │   ├── package.json

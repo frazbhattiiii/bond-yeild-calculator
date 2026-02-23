@@ -1,6 +1,6 @@
 # Bond Yield Calculator
 
-Monorepo (TypeScript): React + Vite frontend, NestJS backend. Interview take-home — code quality, architecture, and naming are evaluation criteria.
+Monorepo (TypeScript): React + Vite frontend, NestJS backend. Emphasis on code quality, architecture, and naming.
 
 ## Git Rules
 
@@ -54,9 +54,18 @@ See `docs/architecture/overview.md` for system diagram and data flow.
 
 | File | Purpose |
 |------|---------|
-| `client/src/App.tsx` | Root React component |
+| `client/src/App.tsx` | Root React component — wizard layout, emerald theme |
 | `client/src/main.tsx` | React entry point |
 | `client/vite.config.ts` | Vite configuration with `@/` alias |
+| `client/.env.sample` | Client environment variable template (`VITE_API_BASE_URL`) |
+| `client/src/constants/bond.constants.ts` | API base URL, validation limits, form defaults |
+| `client/src/services/api-client.service.ts` | Axios instance with response interceptors |
+| `client/src/services/bond-calculation.service.ts` | Bond calculation API calls |
+| `client/src/context/BondCalculatorProvider.tsx` | React Context provider |
+| `client/src/context/bondCalculator.reducer.ts` | Reducer, actions, state shape |
+| `client/src/hooks/useBondCalculator.ts` | Hook wrapping context + validation + API call |
+| `client/src/components/ui/` | Reusable UI primitives (Input, Select, Button, Card, Badge, Alert, Table) |
+| `client/src/components/bond/` | Domain-specific bond components |
 | `server/.env.sample` | Environment variable template (PORT, FRONTEND_ORIGIN) |
 | `server/src/main.ts` | NestJS bootstrap (env config, CORS, ValidationPipe, Swagger, versioning) |
 | `server/src/app.module.ts` | Root module — imports ConfigModule, BondModule |
