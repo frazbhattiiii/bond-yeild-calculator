@@ -30,7 +30,7 @@ export function Button({
       disabled={isDisabled}
       onClick={onClick}
       className={clsx(
-        'rounded-lg px-4 py-2.5 text-sm font-medium transition-colors',
+        'cursor-pointer rounded-lg px-4 py-2.5 text-sm font-medium transition-colors',
         VARIANT_CLASSES[variant],
         isFullWidth && 'w-full',
       )}
