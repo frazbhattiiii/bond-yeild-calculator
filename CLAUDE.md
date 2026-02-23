@@ -67,7 +67,9 @@ See `docs/architecture/overview.md` for system diagram and data flow.
 | `client/src/components/ui/` | Reusable UI primitives (Input, Select, Button, Card, Badge, Alert, Table) |
 | `client/src/components/bond/` | Domain-specific bond components |
 | `server/.env.sample` | Environment variable template (PORT, FRONTEND_ORIGIN) |
-| `server/src/main.ts` | NestJS bootstrap (env config, CORS, ValidationPipe, Swagger, versioning) |
+| `server/src/app.bootstrap.ts` | Shared NestJS app factory (used by main.ts and Vercel serverless) |
+| `server/src/main.ts` | NestJS entry point for local development (calls bootstrap, listens on PORT) |
+| `server/api/index.ts` | Vercel serverless entry point (thin adapter over app.bootstrap) |
 | `server/src/app.module.ts` | Root module — imports ConfigModule, BondModule |
 | `server/src/constants/bond.constants.ts` | Newton-Raphson config, numeric constants |
 | `server/src/enums/bond-status.enum.ts` | `BondStatus` enum (premium, discount, par) |
