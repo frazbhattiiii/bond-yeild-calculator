@@ -70,6 +70,10 @@ src/
 - **Component architecture**: Two tiers — `components/ui/` provides generic primitives (Input, Select, Button, Card, Badge, Alert, Table) and `components/bond/` composes them for domain-specific views.
 - **UX pattern**: Wizard/stepped layout — step 1 shows the bond parameter form, step 2 slides in results + cash flow table. "Start Over" resets to step 1.
 
+## Deployment
+
+Deployed to Vercel as a static site. Vite builds the SPA to `dist/`, which Vercel serves directly. See `docs/architecture/deployment/client.md` for full deployment details.
+
 ## Available Scripts
 
 | Script | Description |

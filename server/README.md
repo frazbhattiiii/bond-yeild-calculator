@@ -132,6 +132,10 @@ server/
     └── bond.e2e-spec.ts                 # End-to-end API tests
 ```
 
+## Deployment
+
+Deployed to Vercel as a serverless function. The entry point (`api/index.js`) is intentionally plain JavaScript — Vercel's `@vercel/node` builder processes `.ts` files through ncc, which re-bundles imports and breaks NestJS decorator metadata. The `.js` file imports from the pre-built `dist/` directory directly, bypassing ncc entirely. See `docs/architecture/deployment/server.md` for full deployment details.
+
 ## Architecture Decisions
 
 - **Pure functions** — All math lives in `utils/yield-math.util.ts` and `utils/cash-flow.util.ts`. No side effects, easy to test.
