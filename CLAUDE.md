@@ -18,7 +18,8 @@ Read `CLAUDE_INSTRUCTIONS.md` before writing or reviewing any code.
 | `pnpm install` | Install all dependencies |
 | `pnpm dev:client` | Start frontend dev server (port 5173) |
 | `pnpm dev:server` | Start backend dev server (port 3000) |
-| `pnpm --filter server test` | Run backend tests |
+| `pnpm --filter server test` | Run backend unit tests |
+| `pnpm --filter server test:e2e` | Run backend e2e tests |
 | `pnpm lint` | Lint all packages |
 | `pnpm format` | Format all files with Prettier |
 | `pnpm build:client` | Build frontend for production |
@@ -56,11 +57,20 @@ See `docs/architecture/overview.md` for system diagram and data flow.
 | `client/src/App.tsx` | Root React component |
 | `client/src/main.tsx` | React entry point |
 | `client/vite.config.ts` | Vite configuration with `@/` alias |
-| `server/src/main.ts` | NestJS bootstrap (CORS, ValidationPipe, global prefix) |
-| `server/src/app.module.ts` | Root module — imports BondModule |
+| `server/.env.sample` | Environment variable template (PORT, FRONTEND_ORIGIN) |
+| `server/src/main.ts` | NestJS bootstrap (env config, CORS, ValidationPipe, Swagger, versioning) |
+| `server/src/app.module.ts` | Root module — imports ConfigModule, BondModule |
+| `server/src/constants/bond.constants.ts` | Newton-Raphson config, numeric constants |
+| `server/src/enums/bond-status.enum.ts` | `BondStatus` enum (premium, discount, par) |
+| `server/src/enums/coupon-frequency.enum.ts` | `CouponFrequency` enum (annual, semi-annual, quarterly) |
+| `server/src/types/bond.types.ts` | `CashFlowEntry`, `BondCalculationResult`, `BondParameters` interfaces |
+| `server/src/utils/yield-math.util.ts` | Pure functions: YTM, current yield, bond pricing |
+| `server/src/utils/cash-flow.util.ts` | Pure function: cash flow schedule builder |
 | `server/src/bond/bond.module.ts` | Bond feature module |
-| `server/src/bond/bond.controller.ts` | Bond REST controller (`/api/bond`) |
-| `server/src/bond/bond.service.ts` | Bond calculation service |
+| `server/src/bond/bond.controller.ts` | `POST /api/v1/bond/calculate` — delegates to service |
+| `server/src/bond/bond.service.ts` | Orchestrates pure calculation functions |
+| `server/src/bond/dto/bond-calculation-request.dto.ts` | Request validation + Swagger |
+| `server/src/bond/dto/bond-calculation-response.dto.ts` | Response shape + Swagger |
 
 ## Further Reading
 

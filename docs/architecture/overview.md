@@ -22,7 +22,7 @@
 
 1. User enters bond parameters (face value, coupon rate, market price, years to maturity, coupon frequency)
 2. Frontend validates inputs client-side (basic type and range checks)
-3. Frontend sends `POST /api/bond/calculate` with `BondCalculationRequestDto`
+3. Frontend sends `POST /api/v1/bond/calculate` with `BondCalculationRequestDto`
 4. Backend validates DTO with `class-validator` decorators
 5. Backend computes: current yield, YTM, total interest, premium/discount, cash flow schedule
 6. Backend returns `BondCalculationResponseDto` as JSON
@@ -32,7 +32,7 @@
 
 | Method | Endpoint | Request Body | Response Body |
 |--------|----------|-------------|--------------|
-| POST | `/api/bond/calculate` | `BondCalculationRequestDto` | `BondCalculationResponseDto` |
+| POST | `/api/v1/bond/calculate` | `BondCalculationRequestDto` | `BondCalculationResponseDto` |
 
 **Request fields:** `faceValue`, `couponRate`, `marketPrice`, `yearsToMaturity`, `couponFrequency`
 **Response fields:** `currentYield`, `yieldToMaturity`, `totalInterest`, `bondStatus` (premium/discount/par), `cashFlowSchedule[]`

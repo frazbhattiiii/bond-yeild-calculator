@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { BondController } from './bond.controller.js';
-import { BondService } from './bond.service.js';
+import { BondController } from '@/bond/bond.controller';
+import { BondService } from '@/bond/bond.service';
 
 @Module({
   controllers: [BondController],

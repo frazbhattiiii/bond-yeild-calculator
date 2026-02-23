@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
-import { BondModule } from './bond/bond.module.js';
+import { ConfigModule } from '@nestjs/config';
+
+import { BondModule } from '@/bond/bond.module';
 
 @Module({
-  imports: [BondModule],
+  imports: [ConfigModule.forRoot(), BondModule],
 })
 export class AppModule {}
