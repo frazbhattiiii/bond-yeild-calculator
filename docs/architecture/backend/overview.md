@@ -73,13 +73,13 @@ Server configuration is loaded from `.env` via `@nestjs/config` (`ConfigModule.f
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `PORT` | `3000` | Backend server port |
-| `FRONTEND_ORIGIN` | `http://localhost:5173` | Allowed CORS origin |
+| `CORS_ORIGIN` | `http://localhost:5173` | Allowed CORS origin |
 
 `ConfigService` is used in `main.ts` to read these values at bootstrap.
 
 ## CORS Configuration
 
-CORS origin is set from the `FRONTEND_ORIGIN` environment variable (defaults to `http://localhost:5173`).
+CORS origin is set from the `CORS_ORIGIN` environment variable (defaults to `*` when unset).
 
 ## Swagger Documentation
 

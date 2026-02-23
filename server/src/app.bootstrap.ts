@@ -26,7 +26,7 @@ export async function createConfiguredApp(): Promise<NestExpressApplication> {
   );
 
   app.enableCors({
-    origin: process.env.FRONTEND_ORIGIN ?? '*',
+    origin: process.env.CORS_ORIGIN?.trim() || '*',
   });
 
   const swaggerConfig = new DocumentBuilder()

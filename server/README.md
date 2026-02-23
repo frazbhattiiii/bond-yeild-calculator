@@ -25,7 +25,7 @@ pnpm dev:server
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `PORT` | `3000` | Backend server port |
-| `FRONTEND_ORIGIN` | `http://localhost:5173` | Allowed CORS origin |
+| `CORS_ORIGIN` | `http://localhost:5173` | Allowed CORS origin |
 
 Copy `.env.sample` to `.env` and adjust values as needed.
 
